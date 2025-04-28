@@ -33,6 +33,8 @@ Diagram ini dapat digunakan untuk memahami struktur dasar dari kedua arsitektur 
 ## Diagram
 
 ![labeled-multiprocessor-diagram](https://github.com/user-attachments/assets/69a2909b-ec32-4102-9bef-5eda2124fd0d)
+![labeled-symmetric-multiprocessor (1)](https://github.com/user-attachments/assets/ddcdeb0c-1fbe-4bf6-a579-8caba6e5bee7)
+
 
 
 
