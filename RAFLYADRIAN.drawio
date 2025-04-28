@@ -1,9 +1,87 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.14">
-  <diagram name="Page-1" id="GQdt73DsUn6cskKvFt3g">
-    <mxGraphModel>
+<mxfile host="app.diagrams.net" modified="2025-04-28T00:00:00.000Z" agent="5.0 (Windows)" etag="12345" version="14.6.13" type="device">
+  <diagram id="multiple" name="Multiple Processor">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff">
       <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Processor 1 -->
+        <mxCell id="p1" value="CPU 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <!-- L1 Cache 1 -->
+        <mxCell id="l1_1" value="L1 Cache" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="160" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Processor 2 -->
+        <mxCell id="p2" value="CPU 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <!-- L1 Cache 2 -->
+        <mxCell id="l1_2" value="L1 Cache" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="160" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Bus Arbiter -->
+        <mxCell id="arb" value="Bus Arbiter" style="rectangle;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="240" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Shared Memory -->
+        <mxCell id="mem" value="Main Memory" style="rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Connections CPU->L1 -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="p1" target="l1_1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="p2" target="l1_2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- L1->Arbiter -->
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="l1_1" target="arb"/>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="l1_2" target="arb"/>
+        <!-- Arbiter->Memory -->
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="arb" target="mem">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="symmetric" name="Symmetric Multiprocessor">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- CPUs with private L1 -->
+        <mxCell id="cp1" value="CPU 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="100" y="60" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1l1" value="L1 Cache" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="115" y="120" width="70" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="cp2" value="CPU 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="260" y="60" width="100" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2l1" value="L1 Cache" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="275" y="120" width="70" height="30" as="geometry"/>
+        </mxCell>
+        <!-- Shared L2 Cache -->
+        <mxCell id="l2" value="Shared L2 Cache" style="rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="180" y="180" width="120" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Crossbar Switch -->
+        <mxCell id="xb" value="Crossbar" style="rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="180" y="250" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Main Memory -->
+        <mxCell id="mm" value="Main Memory" style="rectangle;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="180" y="310" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Connections -->
+        <mxCell id="e1s" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;" edge="1" parent="1" source="cp1" target="c1l1"/>
+        <mxCell id="e2s" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;" edge="1" parent="1" source="cp2" target="c2l1"/>
+        <mxCell id="e3s" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;" edge="1" parent="1" source="c1l1" target="l2"/>
+        <mxCell id="e4s" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;" edge="1" parent="1" source="c2l1" target="l2"/>
+        <mxCell id="e5s" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;" edge="1" parent="1" source="l2" target="xb"/>
+        <mxCell id="e6s" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;" edge="1" parent="1" source="xb" target="mm"/>
       </root>
     </mxGraphModel>
   </diagram>
