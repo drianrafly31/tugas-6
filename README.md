@@ -32,4 +32,7 @@ Diagram ini dapat digunakan untuk memahami struktur dasar dari kedua arsitektur 
 
 ## Diagram
 
-![Multiple Processor vs Symmetric Multiprocessor](./path-to-your-image.png)
+![labeled-multiprocessor-diagram](https://github.com/user-attachments/assets/69a2909b-ec32-4102-9bef-5eda2124fd0d)
+
+
+
